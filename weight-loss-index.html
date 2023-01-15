@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Weight Loss Calculator</title>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="stylesheet" href="weight-loss-styles.css">
+</head>
+<body>
+
+<div id="bootstrap-div" class="container my-5">
+
+  <!-- Disclaimer Modal -->
+  <div id="disclaimer" class="modal fade" data-bs-backdrop="static">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">DISCLAIMER</h5>
+        </div>
+        <div class="modal-body">
+          <p>The results from this calculator are general guidelines, not prescriptions.  For best results, consult your doctor or a certified fitness professional.</p>
+          <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">I understand</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- User Metrics Card -->
+  <div id="input-card" class="card d-flex justify-contents-center align-items-center m-auto mt-5em" style="width: 22em;">
+    <img src="img/plate.webp" class="card-img-top" alt="scale-img">
+    <div class="card-body d-flex flex-column justify-content-center">
+      <!--            <h5 id="card-title" class="card-title m-auto">Weight Loss Calculator</h5>-->
+
+      <!-- DATA GATHERING -->
+      <!-- Age -->
+      <label for="age">Age:</label>
+      <input type="number" id="age" name="age" class="input">
+
+      <!-- Height -->
+      <label for="user-height">Height:</label>
+      <div class="input-group input">
+        <input type="number" id="user-height" name="height" class="form-control">
+        <select id="height-selector" class="form-select align-items-center" aria-label="Default select example">
+          <option value="in" selected>in</option>
+          <option value="cm">cm</option>
+        </select>
+      </div>
+
+      <!-- Current Weight -->
+      <label for="c_weight_selector">Current Weight:</label>
+      <div class="input-group input">
+        <input id="user-current-weight" type="number" name="currentWeight" class="form-control" aria-label="Text input with dropdown button">
+        <select id="c_weight_selector" class="form-select align-items-center">
+          <option value="lbs" selected>lbs</option>
+          <option value="kgs">kgs</option>
+        </select>
+      </div>
+
+      <!-- Goal Weight -->
+      <label for="user-goal-weight">Goal Weight:</label>
+      <div class="input-group input">
+        <input id="user-goal-weight" type="number" name="goalWeight" class="form-control" aria-label="Text input with dropdown button">
+        <select id="g_weight_selector" class="form-select align-items-center">
+          <option value="lbs" selected>lbs</option>
+          <option value="kgs">kgs</option>
+        </select>
+      </div>
+
+      <!-- Sex -->
+      <label for="sex">Sex:</label>
+      <div id="sex">
+        <div class="form-check">
+          <input type="radio" class="form-check-input" name="sex" id="male" value="M" checked>
+          <label class="form-check-label" for="male">
+            Male
+          </label>
+        </div>
+        <div class="form-check">
+          <input type="radio" class="form-check-input" name="sex" id="female" value="F">
+          <label class="form-check-label mb-3" for="female">
+            Female
+          </label>
+        </div>
+      </div>
+
+      <!-- Activity Level -->
+      <label for="activityLevel">Current Activity Level:</label>
+      <select id="activityLevel" class="form-select form-select mb-4" aria-label="Default select example">
+        <option value="default" selected>Select Level Here</option>
+        <option value="1">1.  Sedentary (little to no exercise + desk job)</option>
+        <option value="2">2.  Lightly Active (light exercise 1-3 days a week)</option>
+        <option value="3">3.  Moderately Active (moderate exercise 3-5 days a week</option>
+        <option value="4">4.  Very Active (heavy exercise 6-7 days a week)</option>
+        <option value="5">5.  Extremely Active (strenuous training 2x a day)</option>
+      </select>
+
+      <!-- Submit Button -->
+      <button id="submit-btn" type="submit" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">Submit</button>
+    </div>
+  </div>
+
+  <!-- Results Modals -->
+  <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header bg-success">
+          <h1 class="modal-title fs-5 text-white" id="exampleModalToggleLabel">Mild Weight Loss</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div  id="one-pound-results" class="modal-body">
+          <!-- Content from JS Here -->
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-success d-flex align-items-center" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Moderate Weight Loss <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-circle" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+          </svg></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header bg-warning">
+          <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">Moderate Weight Loss</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div id="two-pound-results" class="modal-body">
+          <!-- Content from JS Here -->
+        </div>
+        <div class="modal-footer d-flex justify-content-start">
+          <button class="btn btn-warning d-flex align-items-center" data-bs-target="#exampleModalToggle" data-bs-toggle="modal"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
+          </svg> Mild Weight Loss</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div> <!-- Container Closing Tag -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<script src="weight-loss-script.js"></script>
+</body>
+</html>
